@@ -13,7 +13,7 @@
 
             <StackLayout Orientation="Vertical">
 
-                <Label Text="Hello world!" FontSize="Header" Margin="30" />
+                <Label Text="Hello Armand's Branch!" FontSize="Header" Margin="30" />
 
                 <Border 
                     Background="#1C1C1E" 
