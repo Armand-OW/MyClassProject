@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyClassProject.MainPage">
+
+  
+    <ScrollView>
+
+        <VerticalStackLayout 
+            Spacing="25" 
+            Padding="30,0" 
+            VerticalOptions="Center">
+
+            <StackLayout Orientation="Vertical">
+
+                <Label Text="Hello world!" FontSize="Header" Margin="30" />
+
+                <Border 
+                    Background="#1C1C1E" 
+                    Padding="20" 
+                    StrokeShape="RoundRectangle 40,0,0,40">
+                    <Entry Placeholder="This is an entry!" WidthRequest="300"/>
+                </Border>
+
+                <Button Text="Click Me Please" Clicked="TestingClicked"/>
+
+                <Image HeightRequest="300" Source="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg" />
+
+                <ActivityIndicator IsRunning="True" />
+
+            </StackLayout>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <!--Add values here-->
+                <Button Grid.Row="0" Grid.Column="0" Text="Click Me Once" />
+                <Button Grid.Row="0" Grid.Column="1" Text="Click Me Twice" />
+                <Button Grid.Row="1" Grid.Column="0" Text="Click Me Trice" />
+                <Button Grid.Row="1" Grid.Column="1" Text="Click Me Four" />
+                
+            </Grid>
+            
+            
+
+
+            <Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+                
+            <Label 
+                Text="Hello, World!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+            
+            <Label 
+                Text="Welcome to .NET Multi-platform App UI"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <Button 
+                x:Name="CounterBtn"
+                Text="Click me"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+ 
+</ContentPage>
