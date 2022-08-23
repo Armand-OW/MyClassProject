@@ -11,6 +11,9 @@
             Padding="30,0" 
             VerticalOptions="Center">
 
+            <Button Text="Navigate to view details" Clicked="Navigation_Clicked" />
+
+
             <StackLayout Orientation="Vertical">
 
                 <Label Text="Hello Master Branch!!" FontSize="Header" Margin="30" />

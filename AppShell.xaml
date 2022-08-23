@@ -4,11 +4,57 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MyClassProject"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <Shell.FlyoutHeader>
+        <local:FlyoutHeaderView/>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Todos" Icon="house.png">
+        <Tab>
+            <ShellContent
+                Title="Todos"
+                ContentTemplate="{DataTemplate local:Views.TodoPage}"
+                Route="TodoPage" />
+        </Tab>
+    </FlyoutItem>
+
+
+    <FlyoutItem Title="Logout" Icon="house.png">
+        <Tab>
+            <ShellContent
+                Title=""
+                ContentTemplate="{DataTemplate local:Views.LoginPage}"
+                Route="LoginPage" />
+        </Tab>
+    </FlyoutItem>
+    
+
+    <FlyoutItem Title="My Profile" Icon="house.png">
+        <Tab>
+            <ShellContent
+                Title="My Profile"
+                ContentTemplate="{DataTemplate local:Views.ProfilePage}"
+                Route="ProfilePage" />
+        </Tab>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Home" Icon="house.png">
+        <Tab>
+            <ShellContent
+                Title="Home"
+                ContentTemplate="{DataTemplate local:MainPage}"
+                Route="MainPage" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Settings" Icon="settings.png">
+        <Tab>
+            <ShellContent
+                Title="Settings"
+                ContentTemplate="{DataTemplate local:SecondPage}"
+                Route="SecondPage" />
+        </Tab>
+    </FlyoutItem>
 
 </Shell>

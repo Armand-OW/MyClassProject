@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyClassProject.Views.TodoPage"
+             xmlns:viewmodel="clr-namespace:MyClassProject.ViewModels"
+             x:DataType="viewmodel:TodoViewModel"
+             Title="TodoPage">
+    <ScrollView>
+        <VerticalStackLayout>
+
+
+            <Label 
+            Text="Add a New Item to complete"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry Text="{Binding Title}"
+               Placeholder="Item Title"
+               TextColor="LightGreen"
+               WidthRequest="200"/>
+
+        <Picker x:Name="picker"
+                Title="Assigned User"
+                TitleColor="LightGreen"
+                ItemsSource="{Binding ListOfUsers}"
+                ItemDisplayBinding="{Binding Username}"
+                SelectedItem="{Binding SelectedUser}"
+                HorizontalOptions="Center"
+            />
+        <Label Text="{Binding Source={x:Reference picker}, Path=SelectedItem.Id}" HorizontalOptions="Center"/>
+
+
+        <Button Command="{Binding AddTodoCommand}"
+                Text="Add Item"
+                BackgroundColor="LightGreen"
+                WidthRequest="200"/>
+
+
+        <Label 
+            Text="Items to complete"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+            <Label Text="{Binding TotalTodos}"
+                   VerticalOptions="Center" 
+                    HorizontalOptions="Center" FontSize="Large"/>
+
+
+            <CollectionView ItemsSource="{Binding Todos}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Padding="10">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Title}"/>
+                                <Label Text="{Binding UserId}"/>
+                            </VerticalStackLayout>
+
+                            <CheckBox IsChecked="{Binding IsCompleted}"
+                                      HorizontalOptions="EndAndExpand" >
+                                <CheckBox.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TodoViewModel}}, Path=HandleCompleteCommand}"
+                                        CommandParameter="{Binding Id}"/>
+                                </CheckBox.GestureRecognizers>
+                            </CheckBox>
+
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

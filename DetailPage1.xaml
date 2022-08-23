@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyClassProject.DetailPage1"
+             Title="DetailPage1">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to DETAILS!!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label
+            Text="Hello Armand"
+            TextColor="BlanchedAlmond"
+            FontSize="Large"/>
+
+        <Button Text="Go Back!" Clicked="Back_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>

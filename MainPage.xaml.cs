@@ -26,5 +26,10 @@ public partial class MainPage : ContentPage
 	{
 		Console.WriteLine("CLICKED!");
 	}
+
+	private async void Navigation_Clicked(object sender, EventArgs e)
+	{
+		await Shell.Current.GoToAsync("Details");
+	}
 }
 

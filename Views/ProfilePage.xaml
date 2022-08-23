@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyClassProject.Views.ProfilePage"
+             xmlns:viewmodel="clr-namespace:MyClassProject.ViewModels"
+             x:DataType="viewmodel:ProfileViewModel"
+             Title="ProfilePage"
+             BackgroundColor="White">
+    <VerticalStackLayout>
+        <Label 
+            Text="Add new User"
+            TextColor="Black"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Entry Text="{Binding Username}"
+               TextColor="Black"
+               WidthRequest="200"
+               Placeholder="Username" />
+
+        <Entry Text="{Binding Role}"
+               TextColor="Black"
+               WidthRequest="200"
+               Placeholder="Role" />
+
+        <Entry Text="{Binding Password}"
+               IsPassword="True"
+               TextColor="Black"
+               WidthRequest="200"
+               Placeholder="Role" />
+
+        <Button 
+            
+                Clicked="Save_Clicked"
+                Text="Add User"
+                WidthRequest="200"/>
+
+        <Label  Text=""
+                TextColor="Black"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"/>
+
+
+        <VerticalStackLayout>
+
+            <Label Text="All Our Profiles" />
+
+            <CollectionView ItemsSource="{Binding Users}">
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+                        <!--Template or component for each item-->
+                        <HorizontalStackLayout Padding="20"
+                                               BackgroundColor="LightGray">
+
+                            <Label Text="{Binding Username}" />
+                            <Label Text="{Binding Role}" 
+                                   VerticalOptions="EndAndExpand"/>
+
+                            <Button Text="Delete"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ProfileViewModel}}, Path=DeleteCommand}"
+                                    CommandParameter="{Binding Id}"/>
+                        </HorizontalStackLayout>
+                       
+                    </DataTemplate>
+                 
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>
